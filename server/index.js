@@ -37,6 +37,7 @@ app.post("/new", (req,res)=>{
     pool.query('insert into task (description) values ($1) returning *',
         [req.body.description],
         (error, result)=>{
+            
         if (error) {
             res.status(500).json({error:error.message})
         } else {
